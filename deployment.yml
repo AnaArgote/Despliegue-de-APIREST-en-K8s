@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tiendadehelados-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tiendadehelados
+  template:
+    metadata:
+      labels:
+        app: tiendadehelados
+    spec:
+      containers:
+        - name: tiendadehelados
+          image: anaargote/apirusthelados:lat
+          ports:
+            - containerPort: 8080
+

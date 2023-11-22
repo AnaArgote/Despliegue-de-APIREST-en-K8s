@@ -1,0 +1,17 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rust-app-ingress
+spec:
+  rules:
+  - host: api.aargote.com
+    http:
+      paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: tiendadehelados-service
+            port:
+              number: 80
